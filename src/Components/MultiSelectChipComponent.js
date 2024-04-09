@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from "react-icons/ai";
 
-const MultiSelect = () => {
+const MultiSelectChip = () => {
   const [options, setOptions] = useState([
     { id:'1', name: 'Tony Stark', mail: 'stark064@example.com', img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Robert_Downey%2C_Jr._2012.jpg/1200px-Robert_Downey%2C_Jr._2012.jpg' },
     { id:'2', name: 'Loki Laufeyson',  mail:'loki167@example.com', img_url: 'https://pbs.twimg.com/media/EfZ7KofWkAQzzWH.jpg' },
@@ -71,4 +71,4 @@ const MultiSelect = () => {
   );
 };
 
-export default MultiSelect;
+export default MultiSelectChip;
