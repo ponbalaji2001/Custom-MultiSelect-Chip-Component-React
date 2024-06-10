@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AiOutlineClose } from "react-icons/ai";
 
 const MultiSelect = () => {
@@ -18,6 +18,7 @@ const MultiSelect = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [filterText, setFilterText] = useState('');
   const [showOptions, setShowOptions] = useState(false);
+  const wrapperRef = useRef(null);
 
   const handleInputChange = (event) => {
     setFilterText(event.target.value);
@@ -36,8 +37,22 @@ const MultiSelect = () => {
     setOptions([...options, option]);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setShowOptions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [wrapperRef]);
+
+
   return (
-    <div>
+    <div ref={wrapperRef}>
       <h1 style={{textAlign:"center", color:'blue'}}>Pick Users</h1>
       <div style={{ display:'flex', flexWrap:'wrap', width:'1000px', alignItems:'center', borderBottom: '3px solid blue'  }}>
         {selectedOptions.map((option) => (
