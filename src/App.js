@@ -1,6 +1,6 @@
 import './App.css';
-import './Components/MultiSelectChipComponent.js'
-import MultiSelect from './Components/MultiSelectTag.js';
+import MultiSelectChip from './Components/MultiSelectChipComponent.js'
+
 function App() {
   return (
     <div className="App"  style={{ display:'flex', justifyContent:'center' }}>
